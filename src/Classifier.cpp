@@ -7,6 +7,7 @@ static bool compare_rect(cv::Rect rect1, cv::Rect rect2)
 
 Classifier::Classifier(std::string const path)
 {
+	this->substractor = cv::bgsegm::createBackgroundSubtractorMOG();
 	this->detected = std::vector<cv::Rect>();
 	this->first_detected = std::vector<cv::Rect>();
 	this->created = true;
@@ -146,6 +147,33 @@ void Classifier::check(void)
 		}
 	}
 
+}
+
+bool Classifier::detectOther(cv::Mat & frame)
+{
+	std::vector<std::vector<cv::Point>> 	contours;
+	std::vector<cv::Rect>					objects;
+	cv::Mat 								mask;
+	cv::Rect 								tmp;
+	int										count = 0;
+
+	substractor->apply(frame, mask, 0.1);
+	cv::GaussianBlur(mask, mask, cv::Size(11,11), 3.5,3.5);
+	cv::threshold(mask, mask, 100, 255, cv::THRESH_BINARY);
+	cv::findContours(mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE);
+
+	for (auto cont : contours)
+	{
+		tmp = cv::boundingRect(cont);
+
+		if (tmp.width * tmp.height > 4000)
+		{
+			cv::rectangle(frame, tmp, cv::Scalar(0, 0, 128), 3);
+			count++;
+		}
+	}
+
+	return count > 0;
 }
 
 void Classifier::show(cv::Mat & frame)
