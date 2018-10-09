@@ -1,6 +1,7 @@
 # Thread broke detector
 
 Simple Computer vision project (good example for using openCV 3 on C++ style)
+
 This project detects all threads in textile machine (and detects cases, when threads are broken or other object overlap threads)
 
 ## General instructions
