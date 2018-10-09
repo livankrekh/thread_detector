@@ -6,7 +6,7 @@ This project detects all threads in textile machine (and detects cases, when thr
 ## General instructions
 
 For installing and compiling project you need to install:
-* openCV with extra contrib modules (![Compile and install tutorial for Ubuntu](https://www.learnopencv.com/install-opencv3-on-ubuntu/))
+* openCV with extra contrib modules ([Compile and install tutorial for Ubuntu](https://www.learnopencv.com/install-opencv3-on-ubuntu/))
 * g++ with c++11/14 standart supporting
 
 ## Code instructions
