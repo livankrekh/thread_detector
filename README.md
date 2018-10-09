@@ -30,3 +30,9 @@ bool detectOther(cv::Mat & frame);
 cv::Mat & frame - captured frame tranformed to binary image
 returns true, when overlapped object detected
 ```
+## Compile and run
+```
+> cd path/to/project
+> make
+> ./detector path/to/video (if no arg - webcam turn on)
+```
