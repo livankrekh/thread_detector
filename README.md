@@ -22,7 +22,7 @@ cv::Size min_size - minimal rectangle size for detecting (for `cv::CascadeClassi
 cv::Size max_size - maximal rectangle size for detecting (for `cv::CascadeClassifier::detectMultiScale` openCV method)
 ```
 
-* `BackgroundSubstractorMOG` for detecting other object, that overlaps threads and textile machine (uses cv::BackgroundSubtractor from OpenCV contrib modules)
+* `BackgroundSubstractorMOG` for detecting other object, that overlaps threads and textile machine (uses `cv::BackgroundSubtractor` from OpenCV contrib modules)
 ```cpp
 bool detectOther(cv::Mat & frame);
 
